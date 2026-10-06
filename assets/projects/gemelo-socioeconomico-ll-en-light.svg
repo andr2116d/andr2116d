@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-label="Gemelo Socioeconómico LL: Graph of La Libertad's 83 districts with GraphSAGE, community detection and a live scenario simulator.">
+<style>
+  /* todo el contenido es visible desde el inicio: las animaciones solo decoran */
+  .live { animation: live 1.8s ease-in-out infinite; }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; }
+  .shine { animation: shine 3.5s ease-in-out infinite; }
+  @keyframes live { 50% { opacity:.3 } }
+  @keyframes twinkle { 50% { opacity:.35 } }
+  @keyframes shine { 0% { transform:translateX(-120px) } 60%,100% { transform:translateX(600px) } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#dfe9f1"/><stop offset="1" stop-color="#edf2f6"/>
+  </linearGradient>
+  <linearGradient id="gloss" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <clipPath id="bar"><rect x="28" y="334" width="544" height="8" rx="4"/></clipPath>
+</defs>
+<rect x="1" y="1" width="598" height="398" rx="16" fill="url(#bg)"/>
+<defs><linearGradient id="cv" gradientTransform="rotate(59)"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#22d3ee"/></linearGradient><clipPath id="top"><path d="M1 17 a16 16 0 0 1 16 -16 H583 a16 16 0 0 1 16 16 V130 H1 Z"/></clipPath></defs>
+<g clip-path="url(#top)">
+<rect width="600" height="130" fill="url(#cv)"/>
+<path d="M0 39 C 180 6, 360 54, 600 29" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="18"/>
+<path d="M0 78 C 180 43, 360 93, 600 68" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="13"/>
+<path d="M0 118 C 180 80, 360 132, 600 107" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="8"/>
+<line x1="514" y1="81" x2="400" y2="66" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="435" y2="42" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="547" y2="90" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="419" y2="38" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="456" y2="89" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="81" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="435" y2="42" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="419" y2="38" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="456" y2="89" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="355" y2="53" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="400" y1="66" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="435" y1="42" x2="419" y2="38" stroke="#fff" stroke-opacity=".35"/>
+<line x1="435" y1="42" x2="456" y2="89" stroke="#fff" stroke-opacity=".35"/>
+<line x1="435" y1="42" x2="355" y2="53" stroke="#fff" stroke-opacity=".35"/>
+<line x1="435" y1="42" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="435" y1="42" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="547" y1="90" x2="456" y2="89" stroke="#fff" stroke-opacity=".35"/>
+<line x1="547" y1="90" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="419" y1="38" x2="456" y2="89" stroke="#fff" stroke-opacity=".35"/>
+<line x1="419" y1="38" x2="355" y2="53" stroke="#fff" stroke-opacity=".35"/>
+<line x1="419" y1="38" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="419" y1="38" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="456" y1="89" x2="355" y2="53" stroke="#fff" stroke-opacity=".35"/>
+<line x1="456" y1="89" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="456" y1="89" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<line x1="355" y1="53" x2="420" y2="112" stroke="#fff" stroke-opacity=".35"/>
+<line x1="420" y1="112" x2="518" y2="47" stroke="#fff" stroke-opacity=".35"/>
+<circle class="twinkle" style="animation-delay:-1.5s" cx="514" cy="81" r="4.4" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-0.1s" cx="400" cy="66" r="2.6" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-2.6s" cx="435" cy="42" r="4.7" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-2.5s" cx="547" cy="90" r="4.9" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-3.0s" cx="419" cy="38" r="3.6" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-2.5s" cx="456" cy="89" r="4.6" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-0.7s" cx="355" cy="53" r="3.7" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-1.2s" cx="420" cy="112" r="5.4" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-1.4s" cx="518" cy="47" r="3.6" fill="#fff"/>
+<circle r="3.5" fill="#fff"><animateMotion dur="4s" repeatCount="indefinite" path="M355,53 L400,66 L419,38 L420,112 L435,42"/></circle>
+</g>
+<rect x="1" y="1" width="598" height="398" rx="16" fill="none" stroke="#a9c9d6" stroke-width="1.5"/>
+<text x="24" y="36" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#fff" fill-opacity=".85">andr2116d/gemelo-socioeconomico-ll</text>
+<g><rect x="464" y="18" width="116" height="28" rx="14" fill="#000" fill-opacity=".35"/><circle class="live" cx="485" cy="32" r="5" fill="#4ade80"/><text x="497" y="37" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#fff">Live demo</text></g>
+<circle cx="64" cy="130" r="38" fill="#edf2f6"/><circle cx="64" cy="130" r="32" fill="none" stroke="url(#cv)" stroke-width="3"/>
+<image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPCEtLSBUZXJyaXRvcmlvOiBjb250b3JubyBnZW9tw6l0cmljbyBhYnN0cmFjdG8gZGUgdW5hIHJlZ2nDs24gLS0+CiAgPHBhdGggZD0iTTEyIDIwIEwyNiAxMCBMNDQgMTQgTDU0IDI4IEw0OCA0NiBMMzAgNTQgTDE0IDQ0IFoiCiAgICAgICAgZmlsbD0iIzI1NjNlYiIgZmlsbC1vcGFjaXR5PSIwLjEwIgogICAgICAgIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8IS0tIEFyaXN0YXMgZGVsIGdyYWZvIChyZWQgZGUgbm9kb3MgY29uZWN0YWRvcykgLS0+CiAgPGcgc3Ryb2tlPSIjMTZhMzRhIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxsaW5lIHgxPSIyNCIgeTE9IjI0IiB4Mj0iNDAiIHkyPSIyMCIvPgogICAgPGxpbmUgeDE9IjI0IiB5MT0iMjQiIHgyPSIzMCIgeTI9IjQwIi8+CiAgICA8bGluZSB4MT0iNDAiIHkxPSIyMCIgeDI9IjQ0IiB5Mj0iMzgiLz4KICAgIDxsaW5lIHgxPSIzMCIgeTE9IjQwIiB4Mj0iNDQiIHkyPSIzOCIvPgogICAgPGxpbmUgeDE9IjI0IiB5MT0iMjQiIHgyPSI0NCIgeTI9IjM4Ii8+CiAgPC9nPgogIDwhLS0gTm9kb3MgLS0+CiAgPGcgZmlsbD0iIzE2YTM0YSI+CiAgICA8Y2lyY2xlIGN4PSIyNCIgY3k9IjI0IiByPSI0LjUiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iMjAiIHI9IjQuNSIvPgogICAgPGNpcmNsZSBjeD0iMzAiIGN5PSI0MCIgcj0iNC41Ii8+CiAgICA8Y2lyY2xlIGN4PSI0NCIgY3k9IjM4IiByPSI0LjUiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxjaXJjbGUgY3g9IjQwIiBjeT0iMjAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjQwIiByPSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPGNpcmNsZSBjeD0iNDQiIGN5PSIzOCIgcj0iMiIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4K" x="42" y="108" width="44" height="44" preserveAspectRatio="xMidYMid meet"/>
+<text x="116" y="166" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0b1220">Gemelo Socioeconómico LL</text>
+<text font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" fill="#0b1220" fill-opacity=".78">
+<tspan x="28" y="208">Graph of La Libertad's 83 districts with GraphSAGE,</tspan>
+<tspan x="28" y="234">community detection and a live scenario simulator.</tspan>
+</text>
+<g><rect x="28" y="290" width="170" height="28" rx="14" fill="#0e7490" fill-opacity=".1" stroke="#0e7490" stroke-opacity=".45"/><text x="113" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#0e7490">PyTorch Geometric</text></g>
+<g><rect x="206.2" y="290" width="84" height="28" rx="14" fill="#0e7490" fill-opacity=".1" stroke="#0e7490" stroke-opacity=".45"/><text x="248" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#0e7490">FastAPI</text></g>
+<g><rect x="298.4" y="290" width="84" height="28" rx="14" fill="#0e7490" fill-opacity=".1" stroke="#0e7490" stroke-opacity=".45"/><text x="340" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#0e7490">Next.js</text></g>
+<g><rect x="390.59999999999997" y="290" width="84" height="28" rx="14" fill="#0e7490" fill-opacity=".1" stroke="#0e7490" stroke-opacity=".45"/><text x="433" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#0e7490">Leaflet</text></g>
+<rect x="28" y="334" width="544" height="8" rx="4" fill="#a9c9d6"/>
+<g clip-path="url(#bar)">
+<rect x="28.0" y="334" width="460.7" height="8" fill="#3178c6"/>
+<rect x="488.2" y="334" width="70.6" height="8" fill="#3572A5"/>
+<rect x="558.4" y="334" width="8.3" height="8" fill="#663399"/>
+<rect x="566.1" y="334" width="6.1" height="8" fill="#f1e05a"/>
+<rect x="571.7" y="334" width="0.8" height="8" fill="#4b5563"/>
+<rect class="shine" x="0" y="334" width="100" height="8" fill="url(#gloss)"/></g>
+<circle cx="33" cy="365" r="5" fill="#3178c6"/><text x="43" y="370" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#4b5563">TypeScript 85%</text>
+<circle cx="168.60000000000002" cy="365" r="5" fill="#3572A5"/><text x="178.60000000000002" y="370" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#4b5563">Python 13%</text>
+<circle cx="274.6" cy="365" r="5" fill="#663399"/><text x="284.6" y="370" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#4b5563">CSS 1%</text>
+<text x="572" y="370" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#4b5563">Updated Oct 2026</text>
+</svg>
