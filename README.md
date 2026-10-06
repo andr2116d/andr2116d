@@ -74,3 +74,21 @@
 </p>
 <p align="center"><sub>Demos en vivo: <a href="https://quikko.vercel.app/">Quikko ↗</a> &nbsp;·&nbsp; <a href="https://unitru-academic.vercel.app">UNITRU Academic ↗</a> &nbsp;·&nbsp; <a href="https://gemelo-socioeconomico-ll.vercel.app">Gemelo Socioeconómico LL ↗</a></sub></p>
 <!-- PROYECTOS:FIN -->
+
+
+
+<br>
+
+<a href="https://github.com/andr2116d">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats/title-es-dark.svg">
+  <img src="assets/stats/title-es-light.svg" alt="Estadísticas" width="100%">
+</picture>
+</a>
+
+<a href="https://github.com/andr2116d">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats/stats-es-dark.svg">
+  <img src="assets/stats/stats-es-light.svg" alt="Panel de actividad en GitHub: contribuciones del último año, rachas, actividad semanal y lenguajes más usados" width="100%">
+</picture>
+</a>
