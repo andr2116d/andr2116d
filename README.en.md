@@ -44,3 +44,20 @@
 </picture>
 </a>
 </p>
+
+
+<br>
+
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack/title-en-dark.svg">
+  <img src="assets/stack/title-en-light.svg" alt="Tech stack" width="100%">
+</picture>
+</a>
+
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack/stack-en-dark.svg">
+  <img src="assets/stack/stack-en-light.svg" alt="Periodic table of my stack. Backend: Go, Python, Node.js, FastAPI, Echo. Frontend: TypeScript, JavaScript, React, Next.js, Tailwind, Astro. Data &amp; AI: PyTorch, scikit-learn, pandas, PostgreSQL, MongoDB, Redis, InfluxDB, Supabase. Cloud &amp; tools: AWS, Cloudflare, Vercel, Railway, Docker, Terraform, Git, Linux, Playwright." width="100%">
+</picture>
+</a>
