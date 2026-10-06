@@ -96,3 +96,13 @@
   <img src="assets/stats/stats-es-light.svg" alt="Panel de actividad en GitHub: contribuciones del último año, rachas, actividad semanal y lenguajes más usados" width="100%">
 </picture>
 </a>
+
+
+<br>
+
+<a href="https://github.com/andr2116d">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-es-dark.svg">
+  <img src="assets/footer-es-light.svg" alt="Gracias por pasar" width="100%">
+</picture>
+</a>

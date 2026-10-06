@@ -95,3 +95,13 @@
   <img src="assets/stats/stats-en-light.svg" alt="GitHub activity dashboard: contributions in the last year, streaks, weekly activity and most used languages" width="100%">
 </picture>
 </a>
+
+
+<br>
+
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-en-dark.svg">
+  <img src="assets/footer-en-light.svg" alt="Thanks for stopping by" width="100%">
+</picture>
+</a>
