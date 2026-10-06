@@ -5,6 +5,10 @@
 </picture>
 </a>
 
+<!-- AHORA:INICIO -->
+<a href="https://github.com/andr2116d/gemelo-socioeconomico-ll"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: gemelo-socioeconomico-ll" width="100%"></picture></a>
+<!-- AHORA:FIN -->
+
 <p align="center">
 <a href="https://github.com/andr2116d">
 <picture>
