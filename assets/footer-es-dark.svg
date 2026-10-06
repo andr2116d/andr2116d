@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230" role="img" aria-label="Gracias por pasar">
+<style>
+  .edge { stroke:#13303c; stroke-width:1.2; }
+  .flow { stroke:#22d3ee; stroke-width:1.3; stroke-dasharray:4 14; opacity:.5; animation: flow 2.4s linear infinite; }
+  .beat { transform-box:fill-box; transform-origin:center; animation: beat 2.8s ease-in-out infinite; }
+  .ring { transform-origin:1060px 115px; animation: spin 12s linear infinite reverse; }
+  @keyframes flow { to { stroke-dashoffset:-36; } }
+  @keyframes beat { 0%,100% { transform:scale(.55); opacity:.55 } 50% { transform:scale(1); opacity:1 } }
+  @keyframes spin { to { transform:rotate(360deg); } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#05080f"/><stop offset="1" stop-color="#080c14"/></linearGradient>
+  <linearGradient id="line" x1="0" x2="1">
+    <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#a78bfa" stop-opacity=".14"/>
+    <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#141d2b"/></pattern>
+</defs>
+<rect width="1200" height="230" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="230" rx="18" fill="url(#dots)" opacity=".6"/>
+<rect width="1200" height="230" rx="18" fill="url(#glow)"/>
+<line class="edge" x1="90" y1="70" x2="190" y2="50"/>
+<line class="edge" x1="90" y1="70" x2="190" y2="95"/>
+<line class="edge" x1="90" y1="70" x2="190" y2="140"/>
+<line class="edge" x1="90" y1="70" x2="190" y2="185"/>
+<line class="edge" x1="90" y1="115" x2="190" y2="50"/>
+<line class="edge" x1="90" y1="115" x2="190" y2="95"/>
+<line class="edge" x1="90" y1="115" x2="190" y2="140"/>
+<line class="edge" x1="90" y1="115" x2="190" y2="185"/>
+<line class="edge" x1="90" y1="160" x2="190" y2="50"/>
+<line class="edge" x1="90" y1="160" x2="190" y2="95"/>
+<line class="edge" x1="90" y1="160" x2="190" y2="140"/>
+<line class="edge" x1="90" y1="160" x2="190" y2="185"/>
+<line class="edge" x1="190" y1="50" x2="290" y2="92"/>
+<line class="edge" x1="190" y1="50" x2="290" y2="138"/>
+<line class="edge" x1="190" y1="95" x2="290" y2="92"/>
+<line class="edge" x1="190" y1="95" x2="290" y2="138"/>
+<line class="edge" x1="190" y1="140" x2="290" y2="92"/>
+<line class="edge" x1="190" y1="140" x2="290" y2="138"/>
+<line class="edge" x1="190" y1="185" x2="290" y2="92"/>
+<line class="edge" x1="190" y1="185" x2="290" y2="138"/>
+<path d="M290,92 C480,8 820,8 1025,95" fill="none" stroke="#13303c" stroke-width="1.2" stroke-dasharray="2 7"/>
+<circle r="3.6" fill="#22d3ee"><animateMotion dur="4.5s" begin="0.0s" repeatCount="indefinite" path="M290,92 C480,8 820,8 1025,95"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="4.5s" begin="0.0s" repeatCount="indefinite"/></circle>
+<path d="M290,138 C480,222 820,222 1060,155" fill="none" stroke="#13303c" stroke-width="1.2" stroke-dasharray="2 7"/>
+<circle r="3.6" fill="#a78bfa"><animateMotion dur="4.5s" begin="2.2s" repeatCount="indefinite" path="M290,138 C480,222 820,222 1060,155"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="4.5s" begin="2.2s" repeatCount="indefinite"/></circle>
+<line class="flow" style="animation-delay:-0.0s" x1="90" y1="70" x2="190" y2="50"/>
+<line class="flow" style="animation-delay:-0.8s" x1="90" y1="70" x2="190" y2="140"/>
+<line class="flow" style="animation-delay:-0.8s" x1="90" y1="115" x2="190" y2="95"/>
+<line class="flow" style="animation-delay:-1.6s" x1="90" y1="115" x2="190" y2="185"/>
+<line class="flow" style="animation-delay:-0.8s" x1="90" y1="160" x2="190" y2="50"/>
+<line class="flow" style="animation-delay:-1.6s" x1="90" y1="160" x2="190" y2="140"/>
+<line class="flow" style="animation-delay:-0.0s" x1="190" y1="50" x2="290" y2="92"/>
+<line class="flow" style="animation-delay:-0.8s" x1="190" y1="95" x2="290" y2="138"/>
+<line class="flow" style="animation-delay:-0.8s" x1="190" y1="140" x2="290" y2="92"/>
+<line class="flow" style="animation-delay:-1.6s" x1="190" y1="185" x2="290" y2="138"/>
+<circle cx="90" cy="70" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-0.0s" cx="90" cy="70" r="5" fill="#a78bfa"/>
+<circle cx="90" cy="115" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-0.4s" cx="90" cy="115" r="5" fill="#a78bfa"/>
+<circle cx="90" cy="160" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-0.8s" cx="90" cy="160" r="5" fill="#a78bfa"/>
+<circle cx="190" cy="50" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-0.9s" cx="190" cy="50" r="5" fill="#a78bfa"/>
+<circle cx="190" cy="95" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-1.3s" cx="190" cy="95" r="5" fill="#a78bfa"/>
+<circle cx="190" cy="140" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-1.7s" cx="190" cy="140" r="5" fill="#a78bfa"/>
+<circle cx="190" cy="185" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-2.1s" cx="190" cy="185" r="5" fill="#a78bfa"/>
+<circle cx="290" cy="92" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-1.8s" cx="290" cy="92" r="5" fill="#a78bfa"/>
+<circle cx="290" cy="138" r="10" fill="#080c14" stroke="#a78bfa" stroke-width="2"/><circle class="beat" style="animation-delay:-2.2s" cx="290" cy="138" r="5" fill="#a78bfa"/>
+<polygon points="1060.0,75.0 1094.6,95.0 1094.6,135.0 1060.0,155.0 1025.4,135.0 1025.4,95.0" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+<circle class="ring" cx="1060" cy="115" r="21" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5 6" opacity=".7"/>
+<circle cx="1060.0" cy="75.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-0.00s" cx="1060.0" cy="75.0" r="4" fill="#22d3ee"/>
+<circle cx="1094.6" cy="95.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-0.45s" cx="1094.6" cy="95.0" r="4" fill="#22d3ee"/>
+<circle cx="1094.6" cy="135.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-0.90s" cx="1094.6" cy="135.0" r="4" fill="#22d3ee"/>
+<circle cx="1060.0" cy="155.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-1.35s" cx="1060.0" cy="155.0" r="4" fill="#22d3ee"/>
+<circle cx="1025.4" cy="135.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-1.80s" cx="1025.4" cy="135.0" r="4" fill="#22d3ee"/>
+<circle cx="1025.4" cy="95.0" r="8" fill="#080c14" stroke="#22d3ee" stroke-width="2.5"/><circle class="beat" style="animation-delay:-2.25s" cx="1025.4" cy="95.0" r="4" fill="#22d3ee"/>
+<text x="600.0" y="112" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6edf3">Gracias por pasar</text>
+<rect x="568.0" y="130" width="64" height="4" rx="2" fill="url(#line)"/>
+<text x="600.0" y="166" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#7d8794">andr2116d  ·  Trujillo, Perú</text>
+</svg>
