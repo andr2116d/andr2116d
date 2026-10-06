@@ -1,7 +1,9 @@
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/header-en-dark.svg">
   <img src="assets/header-en-light.svg" alt="Andreé Vargas — Backend · Frontend · Artificial Intelligence" width="100%">
 </picture>
+</a>
 
 <p align="center">
 <a href="https://github.com/andr2116d">
@@ -11,8 +13,10 @@
 </picture>
 </a>
 &nbsp;
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/lang-en-on-dark.svg">
   <img src="assets/lang-en-on-light.svg" alt="English" height="36">
 </picture>
+</a>
 </p>
