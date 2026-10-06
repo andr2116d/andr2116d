@@ -1,0 +1,72 @@
+name: Actualizar perfil
+
+on:
+  schedule:
+    - cron: "17 10 * * *"  
+  workflow_dispatch:        
+  push:
+    branches: [main]
+    paths:                  
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/perfil.yml"
+
+permissions:
+  contents: write            
+
+concurrency:                
+  group: perfil
+  cancel-in-progress: true
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repo
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Generar piezas fijas (cabecera, sobre mí, botones, stack, cierre)
+        run: |
+          python scripts/header.py
+          python scripts/about.py
+          python scripts/pills.py
+          python scripts/stack.py
+          python scripts/footer.py
+
+      - name: Generar piezas dinámicas (actividad, proyectos, estadísticas)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/now.py
+          python scripts/projects.py
+          python scripts/stats.py
+
+      - name: Generar la serpiente
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/stats/snake-dark.svg?color_snake=#a78bfa&color_dots=#111a26,#0e3a47,#0e6577,#1597ad,#22d3ee
+            assets/stats/snake-light.svg?color_snake=#6d28d9&color_dots=#d6e1ea,#a5e3ef,#5cc6dc,#1597ad,#0e5f70
+
+      - name: Commitear si algo cambió
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets README.md README.en.md
+          if git diff --cached --quiet; then
+            echo "Sin cambios: no hay nada que commitear."
+            exit 0
+          fi
+          git commit -m "chore: actualizar perfil automáticamente"
+          git pull --rebase origin main
+          git push origin HEAD:main
