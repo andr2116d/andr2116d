@@ -20,3 +20,27 @@
 </picture>
 </a>
 </p>
+
+
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/about-en-dark.svg">
+  <img src="assets/about-en-light.svg" alt="Self-taught backend and frontend developer from Trujillo, Peru. I study Chemical Engineering at UNT and Systems Engineering &amp; AI at UPAO: from the first I bring process thinking; from the second, the tools to automate it." width="100%">
+</picture>
+</a>
+
+<p align="center">
+<a href="https://www.linkedin.com/in/johel-andre%C3%A9-vargas-villanueva-2309862b8">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-linkedin-dark.svg">
+  <img src="assets/contact-linkedin-light.svg" alt="LinkedIn" height="36">
+</picture>
+</a>
+&nbsp;
+<a href="https://www.instagram.com/andvtr_2">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-instagram-dark.svg">
+  <img src="assets/contact-instagram-light.svg" alt="Instagram" height="36">
+</picture>
+</a>
+</p>

@@ -20,3 +20,27 @@
 </picture>
 </a>
 </p>
+
+
+<a href="https://github.com/andr2116d">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/about-es-dark.svg">
+  <img src="assets/about-es-light.svg" alt="Desarrollador backend y frontend autodidacta, de Trujillo, Perú. Estudio Ingeniería Química en la UNT e Ingeniería de Sistemas e IA en la UPAO: de la primera traigo el pensamiento en procesos; de la segunda, las herramientas para automatizarlos." width="100%">
+</picture>
+</a>
+
+<p align="center">
+<a href="https://www.linkedin.com/in/johel-andre%C3%A9-vargas-villanueva-2309862b8">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-linkedin-dark.svg">
+  <img src="assets/contact-linkedin-light.svg" alt="LinkedIn" height="36">
+</picture>
+</a>
+&nbsp;
+<a href="https://www.instagram.com/andvtr_2">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-instagram-dark.svg">
+  <img src="assets/contact-instagram-light.svg" alt="Instagram" height="36">
+</picture>
+</a>
+</p>
