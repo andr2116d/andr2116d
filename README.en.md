@@ -96,6 +96,12 @@
 </picture>
 </a>
 
+<a href="https://github.com/andr2116d/andr2116d/blob/main/README.en.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats/snake-dark.svg">
+  <img src="assets/stats/snake-light.svg" alt="Snake eating the contribution graph" width="100%">
+</picture>
+</a>
 
 <br>
 

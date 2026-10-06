@@ -97,6 +97,12 @@
 </picture>
 </a>
 
+<a href="https://github.com/andr2116d">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats/snake-dark.svg">
+  <img src="assets/stats/snake-light.svg" alt="Serpiente comiéndose el gráfico de contribuciones" width="100%">
+</picture>
+</a>
 
 <br>
 
@@ -106,3 +112,5 @@
   <img src="assets/footer-es-light.svg" alt="Gracias por pasar" width="100%">
 </picture>
 </a>
+
+
