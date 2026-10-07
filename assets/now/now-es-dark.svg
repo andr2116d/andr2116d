@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92" viewBox="0 0 1200 92" role="img" aria-label="Trabajando en: gemelo-socioeconomico-ll">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92" viewBox="0 0 1200 92" role="img" aria-label="Trabajando en: ias-aws-lambda">
 <style>
   .ping { transform-box:fill-box; transform-origin:center; animation: ping 2s ease-out infinite; }
   @keyframes ping { 0% { transform:scale(1); opacity:.7 } 100% { transform:scale(2.6); opacity:0 } }
@@ -10,6 +10,6 @@
 <rect x="1" y="1" width="1198" height="90" rx="14" fill="url(#bg)" stroke="#13303c" stroke-width="1.5"/>
 <rect x="1" y="88" width="1198" height="3" rx="1.5" fill="url(#line)" opacity=".8"/>
 <circle class="ping" cx="34" cy="32" r="6" fill="#3fb950"/><circle cx="34" cy="32" r="6" fill="#3fb950"/>
-<text x="54" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="#7d8794">Trabajando en</text><text x="203" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#22d3ee">gemelo-socioeconomico-ll</text><text x="1168" y="38" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#7d8794">último commit · hoy</text>
-<text x="54" y="68" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#e6edf3" fill-opacity=".85"><tspan fill="#a78bfa">$ git log -1 </tspan>Add portfolio entry for Gemelo Socioeconómico LL</text>
+<text x="54" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="#7d8794">Trabajando en</text><text x="203" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#22d3ee">ias-aws-lambda</text><text x="1168" y="38" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#7d8794">último commit · hoy</text>
+<text x="54" y="68" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#e6edf3" fill-opacity=".85"><tspan fill="#a78bfa">$ git log -1 </tspan>ci: validar estructura, providers y autoría antes de mergear (#7)</text>
 </svg>

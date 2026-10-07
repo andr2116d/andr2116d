@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-label="Ias Aws Lambda: Serverless image processor (API Gateway + Lambda + S3 + SQS) con Terraform en 3 entornos">
+<style>
+  /* todo el contenido es visible desde el inicio: las animaciones solo decoran */
+  .live { animation: live 1.8s ease-in-out infinite; }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; }
+  .shine { animation: shine 3.5s ease-in-out infinite; }
+  @keyframes live { 50% { opacity:.3 } }
+  @keyframes twinkle { 50% { opacity:.35 } }
+  @keyframes shine { 0% { transform:translateX(-120px) } 60%,100% { transform:translateX(600px) } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#05080f"/><stop offset="1" stop-color="#080c14"/>
+  </linearGradient>
+  <linearGradient id="gloss" x1="0" x2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <clipPath id="bar"><rect x="28" y="334" width="544" height="8" rx="4"/></clipPath>
+</defs>
+<rect x="1" y="1" width="598" height="398" rx="16" fill="url(#bg)"/>
+<defs><linearGradient id="cv" gradientTransform="rotate(39)"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#22d3ee"/></linearGradient><clipPath id="top"><path d="M1 17 a16 16 0 0 1 16 -16 H583 a16 16 0 0 1 16 16 V130 H1 Z"/></clipPath></defs>
+<g clip-path="url(#top)">
+<rect width="600" height="130" fill="url(#cv)"/>
+<path d="M0 52 C 180 23, 360 77, 600 41" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="18"/>
+<path d="M0 81 C 180 52, 360 107, 600 71" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="13"/>
+<path d="M0 109 C 180 80, 360 138, 600 99" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="8"/>
+<line x1="329" y1="112" x2="420" y2="62" stroke="#fff" stroke-opacity=".35"/>
+<line x1="329" y1="112" x2="385" y2="70" stroke="#fff" stroke-opacity=".35"/>
+<line x1="329" y1="112" x2="291" y2="14" stroke="#fff" stroke-opacity=".35"/>
+<line x1="329" y1="112" x2="268" y2="100" stroke="#fff" stroke-opacity=".35"/>
+<line x1="329" y1="112" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="447" y1="91" x2="420" y2="62" stroke="#fff" stroke-opacity=".35"/>
+<line x1="447" y1="91" x2="385" y2="70" stroke="#fff" stroke-opacity=".35"/>
+<line x1="447" y1="91" x2="514" y2="100" stroke="#fff" stroke-opacity=".35"/>
+<line x1="447" y1="91" x2="446" y2="50" stroke="#fff" stroke-opacity=".35"/>
+<line x1="447" y1="91" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="420" y1="62" x2="385" y2="70" stroke="#fff" stroke-opacity=".35"/>
+<line x1="420" y1="62" x2="514" y2="100" stroke="#fff" stroke-opacity=".35"/>
+<line x1="420" y1="62" x2="446" y2="50" stroke="#fff" stroke-opacity=".35"/>
+<line x1="420" y1="62" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="385" y1="70" x2="446" y2="50" stroke="#fff" stroke-opacity=".35"/>
+<line x1="385" y1="70" x2="291" y2="14" stroke="#fff" stroke-opacity=".35"/>
+<line x1="385" y1="70" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="100" x2="446" y2="50" stroke="#fff" stroke-opacity=".35"/>
+<line x1="514" y1="100" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="446" y1="50" x2="410" y2="85" stroke="#fff" stroke-opacity=".35"/>
+<line x1="291" y1="14" x2="268" y2="100" stroke="#fff" stroke-opacity=".35"/>
+<circle class="twinkle" style="animation-delay:-0.2s" cx="329" cy="112" r="4.2" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-1.4s" cx="447" cy="91" r="2.5" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-2.5s" cx="420" cy="62" r="4.4" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-1.8s" cx="385" cy="70" r="5.1" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-0.6s" cx="514" cy="100" r="3.4" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-0.5s" cx="446" cy="50" r="5.0" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-2.5s" cx="291" cy="14" r="3.9" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-1.3s" cx="268" cy="100" r="2.9" fill="#fff"/>
+<circle class="twinkle" style="animation-delay:-0.5s" cx="410" cy="85" r="4.9" fill="#fff"/>
+<circle r="3.5" fill="#fff"><animateMotion dur="4s" repeatCount="indefinite" path="M268,100 L291,14 L329,112 L385,70 L410,85"/></circle>
+</g>
+<rect x="1" y="1" width="598" height="398" rx="16" fill="none" stroke="#13303c" stroke-width="1.5"/>
+<text x="24" y="36" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#fff" fill-opacity=".85">andr2116d/ias-aws-lambda</text>
+<circle cx="64" cy="130" r="38" fill="#080c14"/><circle cx="64" cy="130" r="32" fill="none" stroke="url(#cv)" stroke-width="3"/>
+<text x="64" y="139" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#e6edf3">IA</text>
+<text x="116" y="166" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#e6edf3">Ias Aws Lambda</text>
+<text font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" fill="#e6edf3" fill-opacity=".78">
+<tspan x="28" y="208">Serverless image processor (API Gateway + Lambda + S3 +</tspan>
+<tspan x="28" y="234">SQS) con Terraform en 3 entornos</tspan>
+</text>
+<g><rect x="28" y="290" width="50" height="28" rx="14" fill="#22d3ee" fill-opacity=".1" stroke="#22d3ee" stroke-opacity=".45"/><text x="53" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#22d3ee">HCL</text></g>
+<g><rect x="85.8" y="290" width="67" height="28" rx="14" fill="#22d3ee" fill-opacity=".1" stroke="#22d3ee" stroke-opacity=".45"/><text x="119" y="309" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#22d3ee">Shell</text></g>
+<rect x="28" y="334" width="544" height="8" rx="4" fill="#13303c"/>
+<g clip-path="url(#bar)">
+<rect x="28.0" y="334" width="379.5" height="8" fill="#844FBA"/>
+<rect x="407.0" y="334" width="165.5" height="8" fill="#89e051"/>
+<rect class="shine" x="0" y="334" width="100" height="8" fill="url(#gloss)"/></g>
+<circle cx="33" cy="365" r="5" fill="#844FBA"/><text x="43" y="370" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#7d8794">HCL 70%</text>
+<circle cx="116.80000000000001" cy="365" r="5" fill="#89e051"/><text x="126.80000000000001" y="370" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#7d8794">Shell 30%</text>
+<text x="572" y="370" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#7d8794">Actualizado oct 2026</text>
+</svg>

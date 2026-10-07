@@ -6,7 +6,7 @@
 </a>
 
 <!-- AHORA:INICIO -->
-<a href="https://github.com/andr2116d/gemelo-socioeconomico-ll"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: gemelo-socioeconomico-ll" width="100%"></picture></a>
+<a href="https://github.com/andr2116d/ias-aws-lambda"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: ias-aws-lambda" width="100%"></picture></a>
 <!-- AHORA:FIN -->
 
 <p align="center">
@@ -75,6 +75,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/andr2116d/gemelo-socioeconomico-ll"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/projects/gemelo-socioeconomico-ll-en-dark.svg"><img src="assets/projects/gemelo-socioeconomico-ll-en-light.svg" alt="Gemelo Socioeconómico LL" width="49%"></picture></a>
+  <a href="https://github.com/andr2116d/ias-aws-lambda"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/projects/ias-aws-lambda-en-dark.svg"><img src="assets/projects/ias-aws-lambda-en-light.svg" alt="Ias Aws Lambda" width="49%"></picture></a>
 </p>
 <p align="center"><sub>Live demos: <a href="https://quikko.vercel.app/">Quikko ↗</a> &nbsp;·&nbsp; <a href="https://unitru-academic.vercel.app">UNITRU Academic ↗</a> &nbsp;·&nbsp; <a href="https://gemelo-socioeconomico-ll.vercel.app">Gemelo Socioeconómico LL ↗</a></sub></p>
 <!-- PROYECTOS:FIN -->
