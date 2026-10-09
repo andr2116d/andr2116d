@@ -10,6 +10,6 @@
 <rect x="1" y="1" width="1198" height="90" rx="14" fill="url(#bg)" stroke="#13303c" stroke-width="1.5"/>
 <rect x="1" y="88" width="1198" height="3" rx="1.5" fill="url(#line)" opacity=".8"/>
 <circle class="ping" cx="34" cy="32" r="6" fill="#3fb950"/><circle cx="34" cy="32" r="6" fill="#3fb950"/>
-<text x="54" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="#7d8794">Working on</text><text x="172" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#22d3ee">ias-aws-lambda</text><text x="1168" y="38" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#7d8794">last commit · yesterday</text>
-<text x="54" y="68" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#e6edf3" fill-opacity=".85"><tspan fill="#a78bfa">$ git log -1 </tspan>feat(network): crear red del diagrama en el entorno dev (#5)</text>
+<text x="54" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="#7d8794">Working on</text><text x="172" y="38" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#22d3ee">ias-aws-lambda</text><text x="1168" y="38" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#7d8794">last commit · today</text>
+<text x="54" y="68" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#e6edf3" fill-opacity=".85"><tspan fill="#a78bfa">$ git log -1 </tspan>ci: instalar dependencias de las lambdas en el pipeline (#12)</text>
 </svg>
