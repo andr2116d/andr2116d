@@ -6,7 +6,7 @@
 </a>
 
 <!-- AHORA:INICIO -->
-<a href="https://github.com/andr2116d/ias-aws-lambda"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: ias-aws-lambda" width="100%"></picture></a>
+<a href="https://github.com/andr2116d/canchas-reservas"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: canchas-reservas" width="100%"></picture></a>
 <!-- AHORA:FIN -->
 
 <p align="center">
