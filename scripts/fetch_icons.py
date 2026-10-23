@@ -22,6 +22,7 @@ SIMPLE = {
     "pandas": "pandas", "postgresql": "PostgreSQL", "mongodb": "MongoDB", "redis": "Redis",
     "influxdb": "InfluxDB", "supabase": "Supabase", "docker": "Docker", "git": "Git", "linux": "Linux",
     "terraform": "Terraform", "cloudflare": "Cloudflare", "vercel": "Vercel", "railway": "Railway",
+    "springboot": "Spring Boot",
 }
 
 FULL = {
