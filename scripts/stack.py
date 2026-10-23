@@ -1,6 +1,6 @@
 """Stack tecnológico como una "tabla periódica" (SVG), en es/en x oscuro/claro.
 
-Referencia aIngeniería Química: cada tecnología es un "elemento" con número,
+Referencia a Ingeniería Química: cada tecnología es un "elemento" con número,
 símbolo de dos letras.
 
 Los logos están guardados en scripts/icons.json. Para agregar una tecnología: añádela a
