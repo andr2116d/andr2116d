@@ -19,7 +19,7 @@ ICONS = json.loads((Path(__file__).parent / "icons.json").read_text(encoding="ut
 # (nombre visible, símbolo, slug del logo o None)
 GROUPS = [
     (("Backend", "Backend"), [
-        ("Go", "Go", "go"), ("Python", "Py", "python"), ("Node.js", "Nd", "nodedotjs"),
+        ("Go", "Go", "go"), ("Python", "Py", "python"), ("Java", "Jv", "java"), ("Node.js", "Nd", "nodedotjs"),
         ("FastAPI", "Fa", "fastapi"), ("Echo", "Ec", "echo")]),
     (("Frontend", "Frontend"), [
         ("TypeScript", "Ts", "typescript"), ("JavaScript", "Js", "javascript"), ("React", "Re", "react"),

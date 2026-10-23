@@ -2,7 +2,7 @@
 
 Fuentes (versiones fijas, para que el resultado sea siempre el mismo):
   - Simple Icons 16.34.0 (licencia CC0): logos de un solo trazo + color de marca.
-  - devicon (MIT): AWS y Playwright, que no están en Simple Icons.
+  - devicon (MIT): AWS, Playwright y Java, que no están en Simple Icons.
   - labstack/echox (MIT): el ícono oficial de Echo.
 
 """
@@ -28,6 +28,7 @@ FULL = {
     "echo": ("Echo", f"{ECHOX}/site/public/favicon.svg", "labstack/echox (MIT)"),
     "playwright": ("Playwright", f"{DEVICON}/playwright/playwright-original.svg", "devicon (MIT)"),
     "aws": ("AWS", f"{DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg", "devicon (MIT)"),
+    "java": ("Java", f"{DEVICON}/java/java-original.svg", "devicon (MIT)"),
 }
 
 

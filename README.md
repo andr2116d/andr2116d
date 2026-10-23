@@ -62,7 +62,7 @@
 <a href="https://github.com/andr2116d">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack/stack-es-dark.svg">
-  <img src="assets/stack/stack-es-light.svg" alt="Tabla periódica de mi stack. Backend: Go, Python, Node.js, FastAPI, Echo. Frontend: TypeScript, JavaScript, React, Next.js, Tailwind, Astro. Datos e IA: PyTorch, scikit-learn, pandas, PostgreSQL, MongoDB, Redis, InfluxDB, Supabase. Cloud y herramientas: AWS, Cloudflare, Vercel, Railway, Docker, Terraform, Git, Linux, Playwright." width="100%">
+  <img src="assets/stack/stack-es-light.svg" alt="Tabla periódica de mi stack. Backend: Go, Python, Java, Node.js, FastAPI, Echo. Frontend: TypeScript, JavaScript, React, Next.js, Tailwind, Astro. Datos e IA: PyTorch, scikit-learn, pandas, PostgreSQL, MongoDB, Redis, InfluxDB, Supabase. Cloud y herramientas: AWS, Cloudflare, Vercel, Railway, Docker, Terraform, Git, Linux, Playwright." width="100%">
 </picture>
 </a>
 
