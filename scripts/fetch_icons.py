@@ -24,6 +24,7 @@ SIMPLE = {
     "terraform": "Terraform", "cloudflare": "Cloudflare", "vercel": "Vercel", "railway": "Railway",
     "springboot": "Spring Boot",
     "celery": "Celery",
+    "vuedotjs": "Vue.js",
 }
 
 FULL = {

@@ -22,7 +22,7 @@ GROUPS = [
         ("Go", "Go", "go"), ("Python", "Py", "python"), ("Java", "Jv", "java"), ("Node.js", "Nd", "nodedotjs"),
         ("FastAPI", "Fa", "fastapi"), ("Spring Boot", "Sp", "springboot"), ("Echo", "Ec", "echo"), ("Celery", "Ce", "celery")]),
     (("Frontend", "Frontend"), [
-        ("TypeScript", "Ts", "typescript"), ("JavaScript", "Js", "javascript"), ("React", "Re", "react"),
+        ("TypeScript", "Ts", "typescript"), ("JavaScript", "Js", "javascript"), ("React", "Re", "react"), ("Vue.js", "Vu", "vuedotjs"),
         ("Next.js", "Nx", "nextdotjs"), ("Tailwind", "Tw", "tailwindcss"), ("Astro", "As", "astro")]),
     (("Datos e IA", "Data & AI"), [
         ("PyTorch", "Pt", "pytorch"), ("scikit-learn", "Sk", "scikitlearn"), ("pandas", "Pd", "pandas"),
