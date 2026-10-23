@@ -25,7 +25,7 @@ GROUPS = [
         ("TypeScript", "Ts", "typescript"), ("JavaScript", "Js", "javascript"), ("React", "Re", "react"), ("Vue.js", "Vu", "vuedotjs"),
         ("Next.js", "Nx", "nextdotjs"), ("Tailwind", "Tw", "tailwindcss"), ("Astro", "As", "astro")]),
     (("Datos e IA", "Data & AI"), [
-        ("PyTorch", "Pt", "pytorch"), ("scikit-learn", "Sk", "scikitlearn"), ("pandas", "Pd", "pandas"),
+        ("PyTorch", "Pt", "pytorch"), ("scikit-learn", "Sk", "scikitlearn"), ("PaddleOCR", "Po", "paddlepaddle"), ("pandas", "Pd", "pandas"),
         ("PostgreSQL", "Pg", "postgresql"), ("MongoDB", "Mg", "mongodb"), ("Redis", "Rd", "redis"),
         ("InfluxDB", "If", "influxdb"), ("Supabase", "Sb", "supabase")]),
     (("Cloud y herramientas", "Cloud & tools"), [

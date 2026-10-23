@@ -25,6 +25,7 @@ SIMPLE = {
     "springboot": "Spring Boot",
     "celery": "Celery",
     "vuedotjs": "Vue.js",
+    "paddlepaddle": "PaddlePaddle",
 }
 
 FULL = {
