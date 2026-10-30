@@ -6,7 +6,7 @@
 </a>
 
 <!-- AHORA:INICIO -->
-<a href="https://github.com/andr2116d/doggie-assistant"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: doggie-assistant" width="100%"></picture></a>
+<a href="https://github.com/andr2116d/puriy"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now/now-en-dark.svg"><img src="assets/now/now-en-light.svg" alt="Working on: puriy" width="100%"></picture></a>
 <!-- AHORA:FIN -->
 
 <p align="center">
