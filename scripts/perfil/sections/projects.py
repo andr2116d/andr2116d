@@ -146,11 +146,13 @@ def from_github() -> list[dict]:
 
 def repo_logo(repo: dict, forced: str) -> str:
     base = f"https://raw.githubusercontent.com/{USER}/{repo['name']}/{repo['default_branch']}/"
-    try:
-        tree = api(f"/repos/{USER}/{repo['name']}/git/trees/{repo['default_branch']}?recursive=1")
-        paths = [t["path"] for t in tree.get("tree", []) if t["type"] == "blob"]
-    except Exception:
-        paths = []
+    paths = []
+    if not forced:   # el árbol solo hace falta para buscar el logo; si portfolio.yml lo indica, se omite
+        try:
+            tree = api(f"/repos/{USER}/{repo['name']}/git/trees/{repo['default_branch']}?recursive=1")
+            paths = [t["path"] for t in tree.get("tree", []) if t["type"] == "blob"]
+        except Exception:
+            pass
 
     def read(path: str) -> bytes:
         return fetch(base + urllib.parse.quote(path), auth=False)

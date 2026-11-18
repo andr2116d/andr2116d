@@ -13,6 +13,8 @@ cuenta, nunca muestra nombres ni código).
 La API GraphQL siempre exige un token (aunque los datos sean públicos):
   - En GitHub Actions existe solo (GITHUB_TOKEN).
   - En tu computadora: export GITHUB_TOKEN=$(gh auth token)
+
+El calendario se pide solo en la primera página; las siguientes traen solo los lenguajes.
 """
 from datetime import date
 from xml.sax.saxutils import escape
@@ -38,9 +40,9 @@ UI = {
 }
 
 QUERY = """
-query($login: String!, $cursor: String) {
+query($login: String!, $cursor: String, $first: Boolean!) {
   user(login: $login) {
-    contributionsCollection {
+    contributionsCollection @include(if: $first) {
       contributionCalendar {
         totalContributions
         weeks { contributionDays { contributionCount date } }
@@ -56,7 +58,7 @@ query($login: String!, $cursor: String) {
 def from_github() -> tuple[dict, dict]:
     langs, cursor, calendar = {}, None, None
     while True:
-        user = graphql(QUERY, {"login": USER, "cursor": cursor})["user"]
+        user = graphql(QUERY, {"login": USER, "cursor": cursor, "first": calendar is None})["user"]
         calendar = calendar or user["contributionsCollection"]["contributionCalendar"]
         repos = user["repositories"]
         for node in repos["nodes"]:
