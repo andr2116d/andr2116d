@@ -1,4 +1,4 @@
-"""Descarga los logos del stack y los guarda en scripts/icons.json.
+"""Descarga los logos del stack y los guarda en perfil/data/icons.json (comando manual: python -m perfil iconos).
 
 Fuentes (versiones fijas, para que el resultado sea siempre el mismo):
   - Simple Icons 16.34.0 (licencia CC0): logos de un solo trazo + color de marca.
@@ -10,6 +10,8 @@ import json
 import re
 import urllib.request
 from pathlib import Path
+
+NAME, DYNAMIC = "iconos", True
 
 SIMPLE_ICONS = "https://raw.githubusercontent.com/simple-icons/simple-icons/16.34.0"
 DEVICON = "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons"
@@ -41,7 +43,7 @@ def get(url: str) -> str:
         return r.read().decode("utf-8")
 
 
-def main() -> None:
+def run() -> str:
     brand = {x["title"]: x["hex"] for x in json.loads(get(f"{SIMPLE_ICONS}/data/simple-icons.json"))}
     icons = {}
     for slug, title in SIMPLE.items():
@@ -56,10 +58,6 @@ def main() -> None:
         inner = re.sub(r"</svg>\s*$", "", inner.strip()).strip()
         icons[slug] = dict(title=title, viewBox=view_box, svg=re.sub(r"\s+", " ", inner), source=source)
         print("✓", title)
-    out = Path(__file__).resolve().parent / "icons.json"
+    out = Path(__file__).resolve().parent.parent / "data" / "icons.json"
     out.write_text(json.dumps(icons, ensure_ascii=False), encoding="utf-8")
-    print(f"{len(icons)} logos guardados en {out.name}")
-
-
-if __name__ == "__main__":
-    main()
+    return f"{len(icons)} logos guardados en {out.name}"

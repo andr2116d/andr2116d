@@ -3,10 +3,13 @@ Diseño: título + presentación arriba, tres pilares (Construyo, Aprendo,
 Mejoro) con íconos dibujados a mano, una franja con el dato curioso y una
 línea de cierre. Sin emojis: misma paleta y tipografía que la cabecera.
 """
-from pathlib import Path
 from xml.sax.saxutils import escape
 
-from header import THEMES, SANS, MONO
+from ..core.output import ASSETS, variants, write
+from ..core.svg import wrap
+from ..core.theme import THEMES, SANS, MONO
+
+NAME, DYNAMIC = "about", False
 
 W = 1200
 
@@ -49,18 +52,6 @@ TEXTS = {
 }
 
 
-def wrap(text: str, width: int) -> list[str]:
-    """Parte un texto en líneas de como máximo `width` caracteres (SVG no hace saltos solo)."""
-    lines, cur = [], ""
-    for word in text.split():
-        if len(cur) + len(word) + 1 > width and cur:
-            lines.append(cur)
-            cur = word
-        else:
-            cur = f"{cur} {word}".strip()
-    return lines + [cur]
-
-
 def icon(kind: int, x: float, y: float, c: dict) -> str:
     a, b = c["accent"], c["accent2"]
     if kind == 0:  # capas apiladas (stack completo)
@@ -81,7 +72,7 @@ def icon(kind: int, x: float, y: float, c: dict) -> str:
             f'<path d="M30 8 L36 8 L36 14" stroke="{b}"/></g>')
 
 
-def build(theme: str, lang: str) -> str:
+def build(lang: str, theme: str) -> str:
     c, t = THEMES[theme], TEXTS[lang]
     lines = wrap(t["intro"], 80)
     top = 160 + len(lines) * 34 + 18
@@ -169,9 +160,7 @@ def build(theme: str, lang: str) -> str:
     return "\n".join(out)
 
 
-if __name__ == "__main__":
-    out = Path(__file__).resolve().parent.parent / "assets"
-    for lang in TEXTS:
-        for theme in THEMES:
-            (out / f"about-{lang}-{theme}.svg").write_text(build(theme, lang), encoding="utf-8")
-    print("ok")
+def run() -> str:
+    for lang, theme in variants():
+        write(ASSETS / f"about-{lang}-{theme}.svg", build(lang, theme))
+    return "ok"

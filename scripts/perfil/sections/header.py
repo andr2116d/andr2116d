@@ -7,16 +7,13 @@ viajan pulsos de señal y los nodos laten.
 """
 import math
 from xml.sax.saxutils import escape
-from pathlib import Path
+
+from ..core.output import ASSETS, variants, write
+from ..core.theme import THEMES, SANS, MONO
+
+NAME, DYNAMIC = "header", False
 
 W, H = 1200, 300
-
-THEMES = {
-    "dark": dict(bg1="#05080f", bg2="#080c14", grid="#141d2b", text="#e6edf3",
-                 muted="#7d8794", accent="#22d3ee", accent2="#a78bfa", edge="#13303c"),
-    "light": dict(bg1="#dfe9f1", bg2="#edf2f6", grid="#c6d3de", text="#0b1220",
-                  muted="#4b5563", accent="#0e7490", accent2="#6d28d9", edge="#a9c9d6"),
-}
 
 TEXTS = {
     "es": dict(prompt="> hola_mundo", role="Backend · Frontend · Inteligencia Artificial",
@@ -24,10 +21,6 @@ TEXTS = {
     "en": dict(prompt="> hello_world", role="Backend · Frontend · Artificial Intelligence",
                studies="Chemical Eng. · UNT   ×   Systems Eng. & AI · UPAO"),
 }
-
-SANS = "'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif"
-MONO = "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
-
 
 def nodes():
     cx, cy, r = 735, 150, 50
@@ -41,7 +34,7 @@ def nodes():
     return (cx, cy), hexa, layers
 
 
-def build(theme: str, lang: str) -> str:
+def build(lang: str, theme: str) -> str:
     c = THEMES[theme]
     t = {k: escape(v) for k, v in TEXTS[lang].items()}
     n_role = len(TEXTS[lang]["role"])  # longitud real, sin escapar
@@ -182,10 +175,7 @@ def build(theme: str, lang: str) -> str:
     return "\n".join(out)
 
 
-if __name__ == "__main__":
-    out_dir = Path(__file__).resolve().parent.parent / "assets"
-    out_dir.mkdir(exist_ok=True)
-    for lang in TEXTS:
-        for theme in THEMES:
-            (out_dir / f"header-{lang}-{theme}.svg").write_text(build(theme, lang), encoding="utf-8")
-    print("ok")
+def run() -> str:
+    for lang, theme in variants():
+        write(ASSETS / f"header-{lang}-{theme}.svg", build(lang, theme))
+    return "ok"

@@ -1,11 +1,12 @@
-from pathlib import Path
+"""Botones de idioma (ES/EN, encendido/apagado) y de contacto (LinkedIn, Instagram)."""
+from ..core.output import ASSETS, write
+from ..core.theme import THEMES, SANS
 
-from header import THEMES, SANS
+NAME, DYNAMIC = "pills", False
 
 PILLS = {"es": "ES · Español", "en": "EN · English"}
 CONTACTS = {"linkedin": "LinkedIn", "instagram": "Instagram"}
 W, H = 150, 36
-OUT = Path(__file__).resolve().parent.parent / "assets"
 
 
 def pill(label: str, theme: str, active: bool) -> str:
@@ -48,12 +49,11 @@ def contact(kind: str, theme: str) -> str:
             f'fill="{c["text"]}">{CONTACTS[kind]}</text></svg>')
 
 
-if __name__ == "__main__":
-    OUT.mkdir(exist_ok=True)
+def run() -> str:
     for theme in THEMES:
         for lang, label in PILLS.items():
             for state, active in (("on", True), ("off", False)):
-                (OUT / f"lang-{lang}-{state}-{theme}.svg").write_text(pill(label, theme, active), encoding="utf-8")
+                write(ASSETS / f"lang-{lang}-{state}-{theme}.svg", pill(label, theme, active))
         for kind in CONTACTS:
-            (OUT / f"contact-{kind}-{theme}.svg").write_text(contact(kind, theme), encoding="utf-8")
-    print("ok")
+            write(ASSETS / f"contact-{kind}-{theme}.svg", contact(kind, theme))
+    return "ok"
