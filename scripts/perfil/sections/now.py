@@ -1,14 +1,16 @@
+"""Franja "Trabajando en": el último repo con commits, con el mensaje y hace cuánto fue.
+Reescribe el bloque <!-- AHORA --> de los README."""
 import urllib.error
 from datetime import datetime, timezone
-from pathlib import Path
 from xml.sax.saxutils import escape
 
-from header import THEMES, SANS, MONO
-from github_api import USER, all_repos, api
-from projects import TOPICS
+from ..core import readme
+from ..core.github import TOPICS, USER, all_repos, api
+from ..core.output import ASSETS, variants, write
+from ..core.theme import THEMES, SANS, MONO
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets" / "now"
+NAME, DYNAMIC = "now", True
+OUT = ASSETS / "now"
 W, H = 1200, 92
 ONLY_PORTFOLIO = False   # True = solo mostrar actividad de repos con topic portfolio/featured
 
@@ -85,36 +87,26 @@ def build(info: dict | None, lang: str, theme: str) -> str:
     return "\n".join(o)
 
 
-def replace_block(text: str, block: str) -> str:
-    start, end = "<!-- AHORA:INICIO -->", "<!-- AHORA:FIN -->"
-    if start not in text:
-        cut = text.index("</a>", text.index("assets/header-")) + len("</a>")
-        return f"{text[:cut]}\n\n{start}\n{block}\n{end}{text[cut:]}"
-    head, rest = text.split(start, 1)
-    _, tail = rest.split(end, 1)
-    return f"{head}{start}\n{block}\n{end}{tail}"
+def after_header(text: str, marked: str) -> str:
+    """Si los marcadores aún no existen, la franja va justo debajo de la cabecera."""
+    cut = text.index("</a>", text.index("assets/header-")) + len("</a>")
+    return f"{text[:cut]}\n\n{marked}{text[cut:]}"
 
 
 def render(info: dict | None) -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    for lang in UI:
-        for theme in THEMES:
-            (OUT / f"now-{lang}-{theme}.svg").write_text(build(info, lang, theme), encoding="utf-8")
+    for lang, theme in variants():
+        write(OUT / f"now-{lang}-{theme}.svg", build(info, lang, theme))
     link = info["url"] if info else f"https://github.com/{USER}?tab=repositories"
-    for readme, lang in (("README.md", "es"), ("README.en.md", "en")):
-        path = ROOT / readme
+
+    def block(lang: str) -> str:
         alt = f'{UI[lang]["label"]}: {escape(info["repo"])}' if info else UI[lang]["idle"]
-        block = (f'<a href="{link}"><picture><source media="(prefers-color-scheme: dark)" '
-                 f'srcset="assets/now/now-{lang}-dark.svg"><img src="assets/now/now-{lang}-light.svg" '
-                 f'alt="{alt}" width="100%"></picture></a>')
-        path.write_text(replace_block(path.read_text(encoding="utf-8"), block), encoding="utf-8")
+        return (f'<a href="{link}"><picture><source media="(prefers-color-scheme: dark)" '
+                f'srcset="assets/now/now-{lang}-dark.svg"><img src="assets/now/now-{lang}-light.svg" '
+                f'alt="{alt}" width="100%"></picture></a>')
+    readme.update("AHORA", block, after_header)
 
 
-def main() -> None:
+def run() -> str:
     info = from_github()
     render(info)
-    print("trabajando en:", info["repo"] if info else "(sin actividad pública)")
-
-
-if __name__ == "__main__":
-    main()
+    return "trabajando en " + (info["repo"] if info else "(sin actividad pública)")

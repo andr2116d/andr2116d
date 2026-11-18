@@ -13,20 +13,19 @@ cuenta, nunca muestra nombres ni código).
 La API GraphQL siempre exige un token (aunque los datos sean públicos):
   - En GitHub Actions existe solo (GITHUB_TOKEN).
   - En tu computadora: export GITHUB_TOKEN=$(gh auth token)
+
+El calendario se pide solo en la primera página; las siguientes traen solo los lenguajes.
 """
-import json
-import os
-import urllib.request
 from datetime import date
-from pathlib import Path
 from xml.sax.saxutils import escape
 
-from header import THEMES, SANS, MONO
-from github_api import USER
-from projects import LANG_COLORS
+from ..core.github import USER, graphql
+from ..core.output import ASSETS, variants, write
+from ..core.svg import title_svg
+from ..core.theme import LANG_COLORS, THEMES, SANS, MONO
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets" / "stats"
+NAME, DYNAMIC = "stats", True
+OUT = ASSETS / "stats"
 W, H = 1200, 560
 
 UI = {
@@ -41,9 +40,9 @@ UI = {
 }
 
 QUERY = """
-query($login: String!, $cursor: String) {
+query($login: String!, $cursor: String, $first: Boolean!) {
   user(login: $login) {
-    contributionsCollection {
+    contributionsCollection @include(if: $first) {
       contributionCalendar {
         totalContributions
         weeks { contributionDays { contributionCount date } }
@@ -56,26 +55,10 @@ query($login: String!, $cursor: String) {
   }
 }"""
 
-def graphql(variables: dict) -> dict:
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise SystemExit("Falta GITHUB_TOKEN. En tu computadora: export GITHUB_TOKEN=$(gh auth token)")
-    req = urllib.request.Request(
-        "https://api.github.com/graphql", method="POST",
-        data=json.dumps({"query": QUERY, "variables": variables}).encode(),
-        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json",
-                 "User-Agent": f"{USER}-profile"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        out = json.load(r)
-    if out.get("errors"):
-        raise SystemExit(f"GraphQL: {out['errors'][0].get('message')}")
-    return out["data"]["user"]
-
-
 def from_github() -> tuple[dict, dict]:
     langs, cursor, calendar = {}, None, None
     while True:
-        user = graphql({"login": USER, "cursor": cursor})
+        user = graphql(QUERY, {"login": USER, "cursor": cursor, "first": calendar is None})["user"]
         calendar = calendar or user["contributionsCollection"]["contributionCalendar"]
         repos = user["repositories"]
         for node in repos["nodes"]:
@@ -222,31 +205,14 @@ def build(m: dict, langs: dict, lang: str, theme: str) -> str:
     return "\n".join(o)
 
 
-def title_svg(lang: str, theme: str) -> str:
-    c, u = THEMES[theme], UI[lang]
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="96" viewBox="0 0 1200 96" '
-            f'role="img" aria-label="{u["title"]}"><defs><linearGradient id="l" x1="0" x2="1">'
-            f'<stop offset="0" stop-color="{c["accent"]}"/><stop offset="1" stop-color="{c["accent2"]}"/>'
-            f'</linearGradient></defs>'
-            f'<text x="4" y="26" font-family="{MONO}" font-size="18" fill="{c["accent"]}">{u["tag"]}</text>'
-            f'<text x="4" y="70" font-family="{SANS}" font-size="40" font-weight="700" fill="{c["text"]}">'
-            f'{u["title"]}</text><rect x="4" y="84" width="64" height="4" rx="2" fill="url(#l)"/></svg>')
-
-
 def render(calendar: dict, langs: dict) -> dict:
     m = metrics(calendar)
-    OUT.mkdir(parents=True, exist_ok=True)
-    for lang in UI:
-        for theme in THEMES:
-            (OUT / f"stats-{lang}-{theme}.svg").write_text(build(m, langs, lang, theme), encoding="utf-8")
-            (OUT / f"title-{lang}-{theme}.svg").write_text(title_svg(lang, theme), encoding="utf-8")
+    for lang, theme in variants():
+        write(OUT / f"stats-{lang}-{theme}.svg", build(m, langs, lang, theme))
+        write(OUT / f"title-{lang}-{theme}.svg", title_svg(UI[lang]["tag"], UI[lang]["title"], theme))
     return m
 
 
-def main() -> None:
+def run() -> str:
     m = render(*from_github())
-    print(f"{m['total']} contribuciones · racha actual {m['cur']} · racha más larga {m['longest']}")
-
-
-if __name__ == "__main__":
-    main()
+    return f"{m['total']} contribuciones · racha actual {m['cur']} · racha más larga {m['longest']}"

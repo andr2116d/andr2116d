@@ -1,11 +1,12 @@
+"""Cierre animado: red neuronal, puente de señales y benceno alrededor de la despedida."""
 import math
-from pathlib import Path
 from xml.sax.saxutils import escape
 
-from github_api import USER
-from header import THEMES, SANS, MONO
+from ..core.github import USER
+from ..core.output import ASSETS, variants, write
+from ..core.theme import THEMES, SANS, MONO
 
-ROOT = Path(__file__).resolve().parent.parent
+NAME, DYNAMIC = "footer", False
 W, H = 1200, 230
 
 UI = {
@@ -93,9 +94,7 @@ def build(lang: str, theme: str) -> str:
     return "\n".join(o)
 
 
-if __name__ == "__main__":
-    out = ROOT / "assets"
-    for lang in UI:
-        for theme in THEMES:
-            (out / f"footer-{lang}-{theme}.svg").write_text(build(lang, theme), encoding="utf-8")
-    print("ok")
+def run() -> str:
+    for lang, theme in variants():
+        write(ASSETS / f"footer-{lang}-{theme}.svg", build(lang, theme))
+    return "ok"

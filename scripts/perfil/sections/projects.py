@@ -15,26 +15,20 @@ import sys
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-from pathlib import Path
 from xml.sax.saxutils import escape
 
 import yaml
 
-from github_api import USER, all_repos, api, fetch
-from header import THEMES, SANS, MONO
+from ..core import readme
+from ..core.github import TOPICS, USER, all_repos, api, fetch
+from ..core.output import ASSETS, prune, variants, write
+from ..core.readme import picture
+from ..core.svg import title_svg, wrap
+from ..core.theme import LANG_COLORS, THEMES, SANS, MONO
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets" / "projects"
-TOPICS = {"portfolio", "featured"}
+NAME, DYNAMIC = "projects", True
+OUT = ASSETS / "projects"
 LINKS = {"es": f"https://github.com/{USER}", "en": f"https://github.com/{USER}/{USER}/blob/main/README.en.md"}
-
-LANG_COLORS = {
-    "Python": "#3572A5", "TypeScript": "#3178c6", "JavaScript": "#f1e05a", "Go": "#00ADD8",
-    "HTML": "#e34c26", "CSS": "#663399", "HCL": "#844FBA", "Dockerfile": "#384d54",
-    "Shell": "#89e051", "Jupyter Notebook": "#DA5B0B", "Astro": "#ff5a03", "Java": "#b07219",
-    "C++": "#f34b7d", "C": "#555555", "Rust": "#dea584", "PHP": "#4F5D95", "Vue": "#41b883",
-    "Kotlin": "#A97BFF", "Dart": "#00B4AB", "SQL": "#e38c00", "MATLAB": "#e16737",
-}
 
 UI = {
     "es": dict(title="Proyectos", tag="// portafolio", live="Demo en vivo",
@@ -152,11 +146,13 @@ def from_github() -> list[dict]:
 
 def repo_logo(repo: dict, forced: str) -> str:
     base = f"https://raw.githubusercontent.com/{USER}/{repo['name']}/{repo['default_branch']}/"
-    try:
-        tree = api(f"/repos/{USER}/{repo['name']}/git/trees/{repo['default_branch']}?recursive=1")
-        paths = [t["path"] for t in tree.get("tree", []) if t["type"] == "blob"]
-    except Exception:
-        paths = []
+    paths = []
+    if not forced:   # el árbol solo hace falta para buscar el logo; si portfolio.yml lo indica, se omite
+        try:
+            tree = api(f"/repos/{USER}/{repo['name']}/git/trees/{repo['default_branch']}?recursive=1")
+            paths = [t["path"] for t in tree.get("tree", []) if t["type"] == "blob"]
+        except Exception:
+            pass
 
     def read(path: str) -> bytes:
         return fetch(base + urllib.parse.quote(path), auth=False)
@@ -181,21 +177,6 @@ def normalize(raw: dict) -> dict:
         colors=p.get("portada") or p.get("cover"), 
         logo=raw.get("logo", ""),
     )
-
-def wrap(text: str, width: int, max_lines: int) -> list[str]:
-    lines, cur = [], ""
-    for word in text.split():
-        if len(cur) + len(word) + 1 > width and cur:
-            lines.append(cur)
-            cur = word
-        else:
-            cur = f"{cur} {word}".strip()
-    lines.append(cur)
-    if len(lines) > max_lines:
-        lines = lines[:max_lines]
-        lines[-1] = lines[-1].rstrip(".,;: ") + "…"
-    return lines
-
 
 COVERS = [("#06b6d4", "#7c3aed"), ("#0ea5e9", "#22d3ee"), ("#8b5cf6", "#ec4899"),
           ("#14b8a6", "#3b82f6"), ("#6366f1", "#06b6d4"), ("#a855f7", "#0ea5e9")]
@@ -399,22 +380,6 @@ def compact_card(p: dict, lang: str, theme: str) -> str:
     return "\n".join(o)
 
 
-def title_svg(lang: str, theme: str) -> str:
-    c, u = THEMES[theme], UI[lang]
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="96" viewBox="0 0 1200 96" '
-            f'role="img" aria-label="{u["title"]}"><defs><linearGradient id="l" x1="0" x2="1">'
-            f'<stop offset="0" stop-color="{c["accent"]}"/><stop offset="1" stop-color="{c["accent2"]}"/>'
-            f'</linearGradient></defs>'
-            f'<text x="4" y="26" font-family="{MONO}" font-size="18" fill="{c["accent"]}">{u["tag"]}</text>'
-            f'<text x="4" y="70" font-family="{SANS}" font-size="40" font-weight="700" fill="{c["text"]}">'
-            f'{u["title"]}</text><rect x="4" y="84" width="64" height="4" rx="2" fill="url(#l)"/></svg>')
-
-
-def picture(name: str, alt: str, width: str) -> str:
-    return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="assets/{name}-dark.svg">'
-            f'<img src="assets/{name}-light.svg" alt="{escape(alt, {chr(34): "&quot;"})}" width="{width}"></picture>')
-
-
 def grid(projects: list[dict], lang: str, kind: str) -> list[str]:
     rows = []
     for i in range(0, len(projects), 2):
@@ -441,49 +406,25 @@ def section(projects: list[dict], lang: str) -> str:
     return "\n".join(parts)
 
 
-def replace_between(text: str, block: str) -> str:
-    start, end = "<!-- PROYECTOS:INICIO -->", "<!-- PROYECTOS:FIN -->"
-    if start not in text:
-        return text.rstrip() + f"\n\n{start}\n{block}\n{end}\n"
-    head, rest = text.split(start, 1)
-    _, tail = rest.split(end, 1)
-    return f"{head}{start}\n{block}\n{end}{tail}"
-
-
 def render(raw: list[dict]) -> list[dict]:
     projects = sorted((normalize(r) for r in raw),
                       key=lambda p: (not p["featured"], p["order"], -p["pushed"].timestamp()))
 
-    OUT.mkdir(parents=True, exist_ok=True)
-    keep = set()
-    for lang in UI:
-        for theme in THEMES:
-            name = f"title-{lang}-{theme}.svg"
-            (OUT / name).write_text(title_svg(lang, theme), encoding="utf-8")
-            keep.add(name)
-            for p in projects[:MAX_BIG]:
-                name = f'{p["slug"]}-{lang}-{theme}.svg'
-                (OUT / name).write_text(card(p, lang, theme), encoding="utf-8")
-                keep.add(name)
-            for p in projects[MAX_BIG:]:
-                name = f'{p["slug"]}-mini-{lang}-{theme}.svg'
-                (OUT / name).write_text(compact_card(p, lang, theme), encoding="utf-8")
-                keep.add(name)
-    for old in OUT.glob("*.svg"):         
-        if old.name not in keep:
-            old.unlink()
+    files = {}
+    for lang, theme in variants():
+        files[f"title-{lang}-{theme}.svg"] = title_svg(UI[lang]["tag"], UI[lang]["title"], theme)
+        for p in projects[:MAX_BIG]:
+            files[f'{p["slug"]}-{lang}-{theme}.svg'] = card(p, lang, theme)
+        for p in projects[MAX_BIG:]:
+            files[f'{p["slug"]}-mini-{lang}-{theme}.svg'] = compact_card(p, lang, theme)
+    for name, svg in files.items():
+        write(OUT / name, svg)
+    prune(OUT, set(files))
 
-    for readme, lang in (("README.md", "es"), ("README.en.md", "en")):
-        path = ROOT / readme
-        path.write_text(replace_between(path.read_text(encoding="utf-8"), section(projects, lang)),
-                        encoding="utf-8")
+    readme.update("PROYECTOS", lambda lang: section(projects, lang))
     return projects
 
 
-def main() -> None:
+def run() -> str:
     projects = render(from_github())
-    print(f"{len(projects)} proyectos:", ", ".join(p["title"] for p in projects) or "(ninguno con topic portfolio)")
-
-
-if __name__ == "__main__":
-    main()
+    return f"{len(projects)} proyectos: " + (", ".join(p["title"] for p in projects) or "(ninguno con topic portfolio)")

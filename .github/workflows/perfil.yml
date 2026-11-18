@@ -35,20 +35,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generar piezas fijas (cabecera, sobre mí, botones, stack, cierre)
-        run: |
-          python scripts/header.py
-          python scripts/about.py
-          python scripts/pills.py
-          python scripts/stack.py
-          python scripts/footer.py
+        working-directory: scripts
+        run: python -m perfil fijas
 
       - name: Generar piezas dinámicas (actividad, proyectos, estadísticas)
+        working-directory: scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/now.py
-          python scripts/projects.py
-          python scripts/stats.py
+        run: python -m perfil dinamicas
 
       - name: Generar la serpiente
         uses: Platane/snk/svg-only@v3

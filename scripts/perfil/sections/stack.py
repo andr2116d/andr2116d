@@ -3,18 +3,20 @@
 Referencia a Ingeniería Química: cada tecnología es un "elemento" con número,
 símbolo de dos letras.
 
-Los logos están guardados en scripts/icons.json. Para agregar una tecnología: añádela a
-GROUPS y su logo a fetch_icons.py; si no tiene logo, sale un monograma.
+Los logos están guardados en perfil/data/icons.json. Para agregar una tecnología: añádela a
+GROUPS y su logo a sections/iconos.py; si no tiene logo, sale un monograma.
 """
 import json
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-from header import THEMES, SANS, MONO
+from ..core.output import ASSETS, variants, write
+from ..core.svg import title_svg
+from ..core.theme import THEMES, SANS, MONO
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets" / "stack"
-ICONS = json.loads((Path(__file__).parent / "icons.json").read_text(encoding="utf-8"))
+NAME, DYNAMIC = "stack", False
+OUT = ASSETS / "stack"
+ICONS = json.loads((Path(__file__).resolve().parent.parent / "data" / "icons.json").read_text(encoding="utf-8"))
 
 # (nombre visible, símbolo, slug del logo o None)
 GROUPS = [
@@ -151,21 +153,8 @@ def build(lang: str, theme: str) -> str:
     return "\n".join(o)
 
 
-def title_svg(lang: str, theme: str) -> str:
-    c, u = THEMES[theme], UI[lang]
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="96" viewBox="0 0 1200 96" '
-            f'role="img" aria-label="{u["title"]}"><defs><linearGradient id="l" x1="0" x2="1">'
-            f'<stop offset="0" stop-color="{c["accent"]}"/><stop offset="1" stop-color="{c["accent2"]}"/>'
-            f'</linearGradient></defs>'
-            f'<text x="4" y="26" font-family="{MONO}" font-size="18" fill="{c["accent"]}">{u["tag"]}</text>'
-            f'<text x="4" y="70" font-family="{SANS}" font-size="40" font-weight="700" fill="{c["text"]}">'
-            f'{u["title"]}</text><rect x="4" y="84" width="64" height="4" rx="2" fill="url(#l)"/></svg>')
-
-
-if __name__ == "__main__":
-    OUT.mkdir(parents=True, exist_ok=True)
-    for lang in UI:
-        for theme in THEMES:
-            (OUT / f"stack-{lang}-{theme}.svg").write_text(build(lang, theme), encoding="utf-8")
-            (OUT / f"title-{lang}-{theme}.svg").write_text(title_svg(lang, theme), encoding="utf-8")
-    print("ok", W)
+def run() -> str:
+    for lang, theme in variants():
+        write(OUT / f"stack-{lang}-{theme}.svg", build(lang, theme))
+        write(OUT / f"title-{lang}-{theme}.svg", title_svg(UI[lang]["tag"], UI[lang]["title"], theme))
+    return f"{sum(len(items) for _, items in GROUPS)} tecnologías"
